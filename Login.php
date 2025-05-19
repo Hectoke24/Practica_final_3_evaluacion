@@ -1,6 +1,7 @@
 <?php
 // login.php
 session_start();
+require_once("conexion.php");
 
 // Conexión a base de datos (ejemplo usando MySQLi)
 $host = "localhost";
