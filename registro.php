@@ -36,22 +36,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $conn->close();
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <title>Registro</title>
-</head>
-<body>
-    <h2>Crear nuevo usuario</h2>
-    <?php if($message): ?>
-        <p><?php echo htmlspecialchars($message); ?></p>
-    <?php endif; ?>
-    <form method="post">
-        Usuario: <input type="text" name="usuario" required><br>
-        Contraseña: <input type="password" name="password" required><br>
-        <button type="submit">Registrar</button>
-    </form>
-</body>
-</html>
