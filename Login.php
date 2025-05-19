@@ -1,42 +1,37 @@
 <?php
-// login.php
 session_start();
 require_once("conexion.php");
-
-// Conexión a base de datos (ejemplo usando MySQLi)
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "tienda_zapatillas";
-
-$conn = new mysqli($host, $user, $password, $database);
-
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
 
 // Obtener datos del POST
 $usuario = trim($_POST['usuario']);
 $clave = trim($_POST['password']);
 
-// Validación de campos vacíos
+// Validar campos vacíos
 if (empty($usuario) || empty($clave)) {
     echo "Por favor completa todos los campos.";
     exit();
 }
 
-// Buscar el usuario en la base de datos
-$sql = "SELECT * FROM usuarios WHERE usuario = ? AND password = ?";
+// Buscar el usuario en la base de datos (solo por nombre de usuario)
+$sql = "SELECT * FROM usuarios WHERE usuario = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $usuario, $clave);
+$stmt->bind_param("s", $usuario);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows === 1) {
-    $_SESSION['usuario'] = $usuario;
-    header("Location: tienda.php"); // Página principal de la tienda
+    $fila = $result->fetch_assoc();
+
+    // Verificar contraseña encriptada
+    if (password_verify($clave, $fila['password'])) {
+        $_SESSION['usuario'] = $usuario;
+        header("Location: tienda.php"); // Página principal de la tienda
+        exit();
+    } else {
+        echo "Contraseña incorrecta.";
+    }
 } else {
-    echo "Usuario o contraseña incorrectos.";
+    echo "Usuario no encontrado.";
 }
 
 $stmt->close();
