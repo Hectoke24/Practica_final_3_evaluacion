@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Tienda Zapatillas Basket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input {
+            display: block;
+            margin-bottom: 15px;
+            width: 100%;
+            padding: 10px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="login.php" method="POST" onsubmit="return validarFormulario()">
+        <h2>Iniciar Sesión</h2>
+        <label for="usuario">Usuario:</label>
+        <input type="text" name="usuario" id="usuario" required>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" name="password" id="password" required>
+
+        <button type="submit">Entrar</button>
+        <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+
+        <p id="error" class="error"></p>
+    </form>
+
+    <script>
+        function validarFormulario() {
+            var usuario = document.getElementById("usuario").value.trim();
+            var password = document.getElementById("password").value.trim();
+            var error = document.getElementById("error");
+
+            if (usuario === "" || password === "") {
+                error.textContent = "Por favor completa todos los campos.";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
