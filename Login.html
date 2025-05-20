@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -10,28 +10,55 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            margin: 0;
         }
         form {
             background-color: white;
-            padding: 30px;
+            padding: 40px 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
         }
         input {
             display: block;
-            margin-bottom: 15px;
-            width: 100%;
+            margin: 10px auto 20px auto;
+            width: 90%;
             padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #343a40;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 90%;
+        }
+        button:hover {
+            background-color: #495057;
         }
         .error {
             color: red;
+            margin-top: 10px;
+        }
+        img.logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
     <form action="login.php" method="POST" onsubmit="return validarFormulario()">
+        
+        <img src="Imagenes/logo.jpg" alt="Logo H-KIKS" class="logo">
+
         <h2>Iniciar Sesión</h2>
         <label for="usuario">Usuario:</label>
         <input type="text" name="usuario" id="usuario" required>
