@@ -16,16 +16,25 @@ require_once("conexion.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .imagen-producto {
-            height: 200px;
+            height: 100px;
             object-fit: contain;
             width: 100%;
+        }
+
+
+        .btn {
+            display: inline-block !important;
+            background-color: #0d6efd !important;
+            color: white !important;
+            padding: 0.375rem 0.75rem !important;
+            border-radius: 0.375rem !important;
+            text-align: center !important;
+            text-decoration: none !important;
         }
     </style>
 </head>
 
 <body class="bg-light">
-
-    
 
     <div class="container mt-4">
         <h2 class="mb-4">Bienvenido, <?php echo $_SESSION['usuario']; ?> 👟</h2>
@@ -37,7 +46,7 @@ require_once("conexion.php");
 
             while ($producto = $result->fetch_assoc()) {
                 ?>
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 d-flex">
                     <div class="card h-100 shadow d-flex flex-column">
                         <!-- Imagen del producto -->
                         <img src="<?php echo htmlspecialchars($producto['imagen']); ?>" class="card-img-top imagen-producto"
