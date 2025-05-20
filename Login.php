@@ -1,4 +1,5 @@
 <?php
+echo "DEBUG: login.php versión actual"; exit();
 session_start();
 require_once("conexion.php");
 
@@ -23,7 +24,7 @@ if ($result->num_rows === 1) {
     $fila = $result->fetch_assoc();
 
     // Verificar contraseña encriptada
-    if (password_verify($clave, $fila['password'])) {
+    if (password_verify($clave, $fila['contrasena'])) {
         $_SESSION['usuario'] = $usuario;
         header("Location: tienda.php"); // Página principal de la tienda
         exit();

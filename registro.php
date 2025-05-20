@@ -5,7 +5,7 @@ $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $usuario = trim($_POST["usuario"]);
-    $clave = trim($_POST["password"]);
+    $clave = trim($_POST["contrasena"]);
 
     // Validar usuario y contraseña mínimos (ejemplo)
     if (strlen($usuario) < 3 || strlen($clave) < 6) {
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($resultado->num_rows > 0) {
             $message = "El usuario ya existe.";
         } else {
-            $stmt = $conn->prepare("INSERT INTO usuarios (usuario, password) VALUES (?, ?)");
+            $stmt = $conn->prepare(query: "INSERT INTO usuarios (usuario, contrasena) VALUES (?, ?)");
             $stmt->bind_param("ss", $usuario, $clave_encriptada);
             if ($stmt->execute()) {
                 $message = "Usuario registrado correctamente.";
