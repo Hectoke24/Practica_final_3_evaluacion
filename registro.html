@@ -3,13 +3,62 @@
 <head>
     <meta charset="UTF-8" />
     <title>Registro</title>
+    <style>
+        /* Estilos para centrar el contenido */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 2rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 300px;
+        }
+        img.logo {
+            width: 80px;
+            margin-bottom: 1rem;
+        }
+        form input[type="text"],
+        form input[type="password"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0 1rem 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h2>Crear nuevo usuario</h2>
-    <form method="post" action="registro.php">
-        Usuario: <input type="text" name="usuario" required><br>
-        Contraseña: <input type="password" name="contrasena" required><br>
-        <button type="submit">Registrar</button>
-    </form>
+    <div class="container">
+        <!-- Logo de la tienda -->
+        <img src="Imagenes/logo.jpg" alt="Logo H-KICKS" class="logo">
+
+        <h2>Crear nuevo usuario</h2>
+        <form method="post" action="registro.php">
+            <input type="text" name="usuario" placeholder="Usuario" required>
+            <input type="password" name="contrasena" placeholder="Contraseña" required>
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
 </body>
 </html>
