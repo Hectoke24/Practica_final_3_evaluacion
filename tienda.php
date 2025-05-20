@@ -28,10 +28,14 @@ require_once("conexion.php");
             ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow">
+                        <!-- Imagen del producto -->
+                        <img src="<?php echo htmlspecialchars($producto['imagen']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($producto['nombre']); ?>" style="height: 300px; object-fit: cover;">
+                        
                         <div class="card-body">
                             <h5 class="card-title"><?php echo htmlspecialchars($producto['nombre']); ?></h5>
                             <p class="card-text">Referencia: <?php echo $producto['referencia']; ?></p>
                             <p class="card-text">Precio: <strong>€<?php echo number_format($producto['precio'], 2); ?></strong></p>
+                            <p class="card-text"><?php echo htmlspecialchars($producto['descripcion']); ?></p>
                             <a href="#" class="btn btn-primary">Comprar</a>
                         </div>
                     </div>
@@ -43,3 +47,4 @@ require_once("conexion.php");
     </div>
 </body>
 </html>
+
