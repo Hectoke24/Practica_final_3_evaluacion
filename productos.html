@@ -31,14 +31,33 @@
         .card-text {
             margin-bottom: 0.5rem;
         }
+
+        /* Estilos para el pie de página */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
     </style>
 </head>
 
 <body class="bg-light">
     <div class="container mt-5">
-        <h2 class="mb-4 text-center">Catálogo de Productos</h2>
 
         <div id="menu-container"></div>
+
+        <br><br>
+        <h2 class="mb-4 text-center">Catálogo de Productos</h2>
 
         <div class="row">
             <!-- Producto 1 -->
@@ -286,6 +305,12 @@
         </div>
     </div>
 
+   <!-- Pie de página -->
+    <footer>
+        <img src="Imagenes/logo.jpg" alt="H-KICKS Logo">
+        <p>&copy; 2025 H-KICKS. Todos los derechos reservados.</p>
+    </footer>
+
     <script>
         fetch('menu.html')
             .then(response => response.text())
@@ -294,5 +319,6 @@
             })
             .catch(error => console.error('Error cargando el menú:', error));
     </script>
+    
 </body>
 </html>
