@@ -1,306 +1,145 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <title>H-KICKS</title>
+    <title>H-KICKS - Inicio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .imagen-producto {
-            height: 290px;
-            width: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .card {
-            height: 100%;
+        /* Hacer que el body sea un contenedor flex en columna y ocupe toda la altura */
+        body {
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
+            margin: 0; /* eliminar márgenes por defecto */
+            background-color: #f8f9fa; /* para que coincida con bg-light de Bootstrap */
         }
 
-        .card-body {
+        /* Contenedor principal flex-grow para que crezca y empuje el footer */
+        #main-content {
             flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            padding: 2rem 0;
         }
 
-        .card-title,
-        .card-text {
-            margin-bottom: 0.5rem;
+        /* Contenedor del fondo y texto */
+        .hero {
+            position: relative;
+            height: 70vh;
+            background: url("Imagenes/baner_2.jpg") no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        /* Fondo negro semitransparente para que el texto se vea mejor */
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        /* Texto encima */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        /* Botón con margen */
+        .hero-content .btn {
+            margin-top: 15px;
+        }
+
+        /* Estilos para el pie de página */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
     </style>
-
-
-
 </head>
+<body>
+    <div id="menu-container"></div>
 
-<body class="bg-light">
-    <div class="container mt-5">
-        <h2 class="mb-4 text-center"></h2>
-
-        <div id="menu-container"></div>
-
-        <br><br>
-
-        <div class="row">
-            <!-- Producto 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Nike Air Jordan 1 Retro High.jpg" class="imagen-producto" alt="Nike Air Jordan 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Nike Air Jordan 1 Retro High</h5>
-                        <p class="card-text">Zapatillas icónicas con diseño retro y gran amortiguación.</p>
-                        <p class="card-text">Precio: €180.00</p>
-                        <a href="compra.html?producto=Nike Air Jordan 1 Retro High" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Producto 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Adidas Harden Vol. 7.jpg" class="imagen-producto" alt="Adidas Harden Vol. 7">
-                    <div class="card-body">
-                        <h5 class="card-title">Adidas Harden Vol. 7</h5>
-                        <p class="card-text">Modelo de James Harden con excelente respuesta y estilo moderno.</p>
-                        <p class="card-text">Precio: €160.00</p>
-                        <a href="compra.html?producto=Adidas Harden Vol. 7" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Producto 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Nike LeBron 20.jpg" class="imagen-producto" alt="Nike LeBron 20">
-                    <div class="card-body">
-                        <h5 class="card-title">Nike LeBron 20</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €200.00</p>
-                        <a href="compra.html?producto=Nike LeBron 20" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 4 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Under Armour Curry Flow 10.jpg" class="imagen-producto" alt="Under Armour Curry Flow 10">
-                    <div class="card-body">
-                        <h5 class="card-title">Under Armour Curry Flow 10</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €160.00</p>
-                        <a href="compra.html?producto=Under Armour Curry Flow 10" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 5 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Puma MB.02 Rick and Morty.jpg" class="imagen-producto" alt="Puma MB.02 Rick and Morty">
-                    <div class="card-body">
-                        <h5 class="card-title">Puma MB.02 Rick and Morty</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €140.00</p>
-                        <a href="compra.html?producto=Puma MB.02 Rick and Morty" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 6 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Nike KD 16.jpg" class="imagen-producto" alt="Nike KD 16">
-                    <div class="card-body">
-                        <h5 class="card-title">Nike KD 16</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €160.00</p>
-                        <a href="compra.html?producto=Nike KD 16" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 7 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Adidas Dame 8.jpg" class="imagen-producto" alt="Adidas Dame 8">
-                    <div class="card-body">
-                        <h5 class="card-title">Adidas Dame 8</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €130.00</p>
-                        <a href="compra.html?producto=Adidas Dame 8" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 8 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/New Balance Two WXY V3.jpg" class="imagen-producto" alt="New Balance Two WXY V3">
-                    <div class="card-body">
-                        <h5 class="card-title">New Balance Two WXY V3</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €120.00</p>
-                        <a href="compra.html?producto=New Balance Two WXY V3" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 9 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Anta KT7.jpg" class="imagen-producto" alt="Anta KT7">
-                    <div class="card-body">
-                        <h5 class="card-title">Anta KT7</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €150.00</p>
-                        <a href="compra.html?Anta KT7" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 10 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Nike Giannis Immortality 2.jpg" class="imagen-producto" alt="Nike Giannis Immortality 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Nike Giannis Immortality 2</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €95.00</p>
-                        <a href="compra.html?Nike Giannis Immortality 2" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 11 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Nike PG 6.jpg" class="imagen-producto" alt="Nike PG 6">
-                    <div class="card-body">
-                        <h5 class="card-title">Nike PG 6</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €110.00</p>
-                        <a href="compra.html?producto=Nike PG 6" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 12 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Jordan Luka 2.jpg" class="imagen-producto" alt="Jordan Luka 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Jordan Luka 2</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €130.00</p>
-                        <a href="compra.html?Jordan Luka 2" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 13 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Li-Ning Way of Wade 10.jpg" class="imagen-producto" alt="Li-Ning Way of Wade 10">
-                    <div class="card-body">
-                        <h5 class="card-title">Li-Ning Way of Wade 10</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €225.00</p>
-                        <a href="compra.html?producto=Li-Ning Way of Wade 10" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 14 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Reebok Answer IV Allen Iverson.jpg" class="imagen-producto" alt="Reebok Answer IV Allen Iverson">
-                    <div class="card-body">
-                        <h5 class="card-title">Reebok Answer IV Allen Iverson</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €110.00</p>
-                        <a href="compra.html?producto=Reebok Answer IV Allen Iverson" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 15 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Nike Air Zoom G.T. Cut 2.jpg" class="imagen-producto" alt="Nike Air Zoom G.T. Cut 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Nike Air Zoom G.T. Cut 2</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €170.00</p>
-                        <a href="compra.html?producto=Nike Air Zoom G.T. Cut 2" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 16 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Adidas Trae Young 3.jpg" class="imagen-producto" alt="Adidas Trae Young 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Adidas Trae Young 3</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €140.00</p>
-                        <a href="compra.html?producto=Adidas Trae Young 3" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 17 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Peak Taichi Flash 4.0.jpg" class="imagen-producto" alt="Peak Taichi Flash 4.0">
-                    <div class="card-body">
-                        <h5 class="card-title">Peak Taichi Flash 4.0</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €125.00</p>
-                        <a href="compra.html?producto=Peak Taichi Flash 4.0" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 18 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Nike Zoom Freak 4.jpg" class="imagen-producto" alt="Nike Zoom Freak 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Nike Zoom Freak 4</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €130.00</p>
-                        <a href="compra.html?producto=Nike Zoom Freak 4" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 19 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Puma Stewie 2.jpg" class="imagen-producto" alt="Puma Stewie 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Puma Stewie 2</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €125.00</p>
-                        <a href="compra.html?producto=Puma Stewie 2" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 20 -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="Imagenes/Under Armour Spawn 4.jpg" class="imagen-producto" alt="Under Armour Spawn 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Under Armour Spawn 4</h5>
-                        <p class="card-text">Zapatillas de alto rendimiento diseñadas para LeBron James.</p>
-                        <p class="card-text">Precio: €100.00</p>
-                        <a href="compra.html?producto=Under Armour Spawn 4" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
+    <div id="main-content">
+        <div class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <img src="Imagenes/logo.jpg" alt="H-KICKS Logo" style="max-width: 180px;">
+                <h1 class="mt-4 display-4">Bienvenido a H-KICKS</h1>
+                <p class="lead">Esta tienda esta especializada en el calzado mas especial para que disfrutes y rindas como nunca en la pista como tus idolos. </p>
+                <a href="productos.html" class="btn btn-primary btn-lg">Ver Productos</a>
             </div>
         </div>
+
+        <!-- Carrusel Bootstrap -->
+        <div id="carouselExampleIndicators" class="carousel slide mt-5" data-bs-ride="carousel" style="max-width: 800px; margin: 0 auto;">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner rounded">
+                <div class="carousel-item active">
+                    <img src="Imagenes/zapatilla_harden.jpg" class="d-block w-100" alt="Zapatilla 1" style="height: 400px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+                        <h5>James Harden</h5>
+                        <p>Disfruta de los articulos de James harden.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Imagenes/banner.jpg" class="d-block w-100" alt="Zapatilla 2" style="height: 400px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+                        <h5>Luka 4 gone fish</h5>
+                        <p>Proximamente disfruta del nuevo modelo de Luka Doncic.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Imagenes/lebron.jpg" class="d-block w-100" alt="Zapatilla 3" style="height: 400px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+                        <h5>LeBron James</h5>
+                        <p>Domina el mundo del baloncesto como LeBron la NBA.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
     </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <img src="Imagenes/logo.jpg" alt="H-KICKS Logo">
+        <p>&copy; 2025 H-KICKS. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('menu-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error cargando el menú:', error));
+    </script>
 </body>
-
-
-
-<script>
-    fetch('menu.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('menu-container').innerHTML = data;
-        })
-        .catch(error => console.error('Error cargando el menú:', error));
-</script>
-
-
 </html>
