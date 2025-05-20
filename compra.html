@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Proceder a la Compra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2>Proceder a la Compra</h2>
+
+        <div id="detalle-producto" class="mb-4">
+            <!-- Aquí se mostrará el detalle del producto seleccionado -->
+        </div>
+
+        <button id="confirmar-compra" class="btn btn-success">Confirmar Compra</button>
+        <a href="tienda.html" class="btn btn-secondary ms-2">Volver a la Tienda</a>
+    </div>
+
+    <script>
+        // Obtener el parámetro "producto" de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const producto = urlParams.get('producto');
+
+        const detalleDiv = document.getElementById('detalle-producto');
+
+        if (producto) {
+            // Aquí podrías mejorar mostrando más detalles, o cargar info de un JSON
+            detalleDiv.innerHTML = `<p>Has seleccionado: <strong>${producto}</strong></p>`;
+        } else {
+            detalleDiv.innerHTML = '<p>No se ha seleccionado ningún producto.</p>';
+            document.getElementById('confirmar-compra').disabled = true;
+        }
+
+        // Acción al confirmar compra
+        document.getElementById('confirmar-compra').addEventListener('click', () => {
+            alert('Gracias por tu compra de ' + producto + '!');
+            // Aquí podrías redirigir o procesar la compra
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
