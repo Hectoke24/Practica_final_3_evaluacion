@@ -9,11 +9,21 @@ require_once("conexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Tienda de Zapatillas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .imagen-producto {
+            height: 200px;
+            object-fit: contain;
+            width: 100%;
+        }
+    </style>
+
 </head>
+
 <body class="bg-light">
     <div class="container mt-5">
         <h2 class="mb-4">Bienvenido, <?php echo $_SESSION['usuario']; ?> 👟</h2>
@@ -25,26 +35,34 @@ require_once("conexion.php");
             $result = $conn->query($sql);
 
             while ($producto = $result->fetch_assoc()) {
-            ?>
+                ?>
                 <div class="col-md-4 mb-4">
-                    <div class="card h-100 shadow">
+                    <div class="card h-100 shadow d-flex flex-column">
                         <!-- Imagen del producto -->
-                        <img src="<?php echo htmlspecialchars($producto['imagen']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($producto['nombre']); ?>" style="height: 300px; object-fit: cover;">
-                        
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo htmlspecialchars($producto['nombre']); ?></h5>
-                            <p class="card-text">Referencia: <?php echo $producto['referencia']; ?></p>
-                            <p class="card-text">Precio: <strong>€<?php echo number_format($producto['precio'], 2); ?></strong></p>
-                            <p class="card-text"><?php echo htmlspecialchars($producto['descripcion']); ?></p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+                        <img src="<?php echo htmlspecialchars($producto['imagen']); ?>" class="card-img-top imagen-producto"
+                            alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title"><?php echo htmlspecialchars($producto['nombre']); ?></h5>
+                                <p class="card-text"><?php echo htmlspecialchars($producto['descripcion']); ?></p>
+                            </div>
+                            <div class="mt-auto">
+                                <p class="card-text">Referencia: <?php echo $producto['referencia']; ?></p>
+                                <p class="card-text">Precio:
+                                    <strong>€<?php echo number_format($producto['precio'], 2); ?></strong>
+                                </p>
+                                <a href="#" class="btn btn-primary w-100">Comprar</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            <?php
+
+                <?php
             }
             ?>
         </div>
     </div>
 </body>
-</html>
 
+</html>
